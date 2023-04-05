@@ -1,2 +1,2 @@
-# ReactJSProject
-Some small React Js project
+# React JS Project Traning
+Some small React Js Project
