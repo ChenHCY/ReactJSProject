@@ -11,7 +11,7 @@ class App2 extends React.Component {
         dataList: [],
         visibleItems: 0,
       }
-      this.showMore = this.showMore.bind(this);
+      //this.showMore = this.showMore.bind(this);
     }
 
     componentDidMount(){
@@ -21,9 +21,14 @@ class App2 extends React.Component {
     }
 
 
-    showMore(){
+    /*showMore(){
+      this.setState({visibleItems: this.state.visibleItems + 10})
+    };*/
+    
+     showMore = () => {
       this.setState({visibleItems: this.state.visibleItems + 10})
     };
+  
   
 
     render(){
