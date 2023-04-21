@@ -36,7 +36,8 @@ class App extends React.Component{
       }
     ]
 
-    //if input is empty, can not add it
+    //if finished the input, clear the input text and important radio button
+    //also can use for refused to add empty inputValue
     if(inputValue){
       this.setState({
         inputValue: "",
