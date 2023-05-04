@@ -1,3 +1,32 @@
-# React JS Project Traning
+# setState 的 async特性
 
-The React Project 
+setState 的asyc特性，不会立即改变变量的值 ==> 在一个function里面 的所以setState都是基于一个相同的值
+
+setStaet 和 console.log 的区别就是 console.log会立即加入
+
+==> 通常的setState改变量值: `setCount(count + 1) `
+
+==> 可以使用arrow function改变变量值，每次重新读取一场这个变量值 ==> 这样可以消除async异步，形成两个setState的顺序改变变量
+
+# fn componment useEffect()
+
+首先因为fn componment中是不允许使用arrow function进行call back的, 所以我们使用useEffect来完成一些操作，
+
+==》 1. componentDidMount(): componentDidMount 方法在组件首次挂载到 DOM 中时被调用。 您可以使用 useEffect 通过将空数组作为第二个参数传递给 useEffect 来执行类似的行为。 
+  ==> 这将导致效果仅在安装组件时运行一次。
+
+==》2. componentDidUpdate(): 监控一些变量依赖项的改变，来执行对应的操作
+
+```React.js
+useEffect(() => {
+  			// code to run when component updates
+		}, [prop1, prop2]);
+```
+    
+==》 3. componmentWillUmount(): setState()执行完毕之后，最后再执行的操作
+
+  ==> 重点： function() 定义在useEffect() hook中，是无法在外部进行访问的，包括在button onclick中使用
+  
+   ==> 所以如果要使这种function可以在外部被访问，我们需要定义在useEffect hook的外面，然后在hook中调用
+
+# class componment call back
