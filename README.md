@@ -63,3 +63,10 @@ arrow function 相当于call back, 它会在每次setState执行完毕之后，�
 在 React Bootstrap 中，`onHide()` 通常用于模态组件，例如<Modal>和<Popover>。
 
 ==> 当模式或弹出框关闭或隐藏时，传递给的函数onHide被调用。这对于在用户关闭模式后执行某些操作很有用，例如重置组件的状态。
+
+# React-Bootstrap Modals Install Step
+```
+  Step 1: install bootstrap package: 在my-app里面 npm install react-bootstrap bootstrap
+	Step 2: add file in index.js import 'bootstrap/dis/css/bootstrap.min.css';
+	Step 3: 在对应的JSX file中，都要import Modal componment and use it 
+```
