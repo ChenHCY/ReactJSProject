@@ -1,3 +1,9 @@
+# Search User Project
+
+pull data from the JSON file and the user can search, auto-complete search value, add new information, remove infor, and edit info.
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
