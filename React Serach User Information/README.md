@@ -1,6 +1,10 @@
 # Search User Project
 
-Pull data from the JSON file and the user can search, auto-complete search value, add new information, remove infor, and edit info.
+● Developed a dynamic web application using React.JS that pulls data from a JSON file and allows users to search, auto-complete search values, and add, remove, and edit information.
+
+● Implemented a responsive user interface using React components and React Bootstrap to create a seamless user experience for managing data in a JSON file.
+
+● Utilized state management libraries such as Redux and React Context to efficiently manage and update data within the application.
 
 ![Search User Infor](https://user-images.githubusercontent.com/60770401/236731293-8c971295-50eb-4fb1-beae-753462881578.png)
 
