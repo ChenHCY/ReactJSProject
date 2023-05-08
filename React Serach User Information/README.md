@@ -2,7 +2,7 @@
 
 pull data from the JSON file and the user can search, auto-complete search value, add new information, remove infor, and edit info.
 
-
+![My Image](Search User Infor.png)
 
 # Getting Started with Create React App
 
