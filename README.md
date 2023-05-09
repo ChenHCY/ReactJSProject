@@ -64,6 +64,37 @@ arrow function 相当于call back, 它会在每次setState执行完毕之后，�
   
   Step 3: 在对应的JSX file中，都要 ==》 import Modal componment and use it 
   
+ 使用模板： 
+ ```JSX
+ <Modal show = {一个boolean变量控制是否打开} onHide = {一个控制关闭的function}>
+ 	<Modal.Header closeButton>
+            <Modal.Title>提示框的标题</Modal.Title>
+         </Modal.Header>
+	 
+	 /*提示框的主题内容*/
+	  <Modal.Body>
+		<label>User Name:</label>
+                <input type="text" style={{"margin": "10px"}} id="nameInput"/>
+                <p></p>
+                <label>User Email:</label>
+                <input type="email" style={{"margin": "10px"}} id="emailInput"/>
+                <p></p>
+                <label>User ID:</label>
+                <input type="id" style={{"margin": "10px"}} id="idInput"/>
+           </Modal.Body>
+	   
+	   /*提示框的结束button*/
+	   <Modal.Footer>
+                <Button variant="secondary" onClick={一个控制关闭的function}>
+                    Close
+                </Button>
+                <Button variant="primary" onClick={一个控制储存新信息function}>
+                    Save Changes
+                </Button>
+            </Modal.Footer>
+	  </Modal>
+```
+  
 # onHide() in React-Bootstrap Modals
 `onHide()` 是 React.js 中常用的 prop，用于处理隐藏或关闭组件或元素时的事件。它通常与模态或弹出组件结合使用。
 
