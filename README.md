@@ -1,3 +1,37 @@
+# React Rounter in React.js
+==> Beacuse Create React App doesn't include page routing. so the React Router is the most popular solution.
+
+因为react创建的时候是没有页面路径功能，React Rounter就是创建React App的页面路径功能，从而达到切换页面的效果
+
+Add React Router：`npm i -D react-router-dom`
+
+使用的import: `import { Outlet, Link } from "react-router-dom";`
+
+模板：
+```JSX
+ return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="blogs" element={<Blogs />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="*" element={<NoPage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
+```
+# React Redux in React.js
+Redux 是 JavaScript 应用的state容器，提供可预测的state管理。
+==> 也就是说Redux是React项目储存所有变量的容器，可以避免我们使用call back()来访问父层级的变量
+
+1. 安装Redux Toolkit：`npm install @reduxjs/toolkit`
+
+2. 安装Redux 核心库: `npm install redux`
+
+3. 创建一个 React Redux 应用: `npx create-react-app my-app --template redux`
+
 # setState 的 async特性
 
 setState 的asyc特性，不会立即改变变量的值 ==> 在一个function里面 的所以setState都是基于一个相同的值
