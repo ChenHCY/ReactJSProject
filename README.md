@@ -71,5 +71,25 @@ arrow function 相当于call back, 它会在每次setState执行完毕之后，�
 
 ==> 当模式或弹出框关闭或隐藏时，传递给的函数onHide被调用。这对于在用户关闭模式后执行某些操作很有用，例如重置组件的状态。
 
+# starWith() in JavaScript
+The startsWith() method returns true if a string starts with a specified string.
+==> Otherwise it returns false.
 
+string.startsWith(searchValue, start) 用来判断这个string是否是以searchValue开头的, 如果是，返回true, 不是，返回false
 
+The startsWith() method is case sensitive. ==> starWith()是区分大小写的
+	
+# Array.filter() in JavaScript
+==> 数组过滤器
+
+1. The filter() method creates a new array filled with elements that pass a test provided by a function.
+
+==> 该filter()方法创建一个新数组，其中填充了通过函数提供的测试的元素。
+
+2. The filter() method does not execute the function for empty elements.
+	
+==> 该filter()方法不执行空元素的功能。
+	
+3. The filter() method does not change the original array.
+
+==> 该filter()方法不会更改原始数组。
