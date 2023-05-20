@@ -3,9 +3,9 @@
 
 因为react创建的时候是没有页面路径功能，React Rounter就是创建React App的页面路径功能，从而达到切换页面的效果
 
-Add React Router：`npm i -D react-router-dom`
+Add React Router：`npm install react-router-dom`
 
-使用的import: `import { Outlet, Link } from "react-router-dom";`
+使用的import: `import { BrowserRouter, Route, Switch } from 'react-router-dom';`
 
 模板：
 ```JSX
