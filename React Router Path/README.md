@@ -1,3 +1,5 @@
+Utilized React Router and React-Bootstrap to implement website navigation, enabling seamless page transitions and dynamic content updates.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
