@@ -91,6 +91,11 @@ For Example：`return () => clearInterval(interval)`
 
 arrow function 相当于call back, 它会在每次setState执行完毕之后，然后执行这个function
 
+#  React-rounter Install Step
+	Step 1: `npm install react-router-dom`
+	Step 2: add file in index.js or App.jsx ==> `import { BrowserRouter, Route, Switch } from 'react-router-dom';`
+	Step 3: <BrowserRouter> ... </BrowserRouter>
+
 # React-Bootstrap Modals Install Step
   Step 1: install bootstrap package: 在my-app里面 ==》 npm install react-bootstrap bootstrap
 	
