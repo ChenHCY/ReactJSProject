@@ -96,7 +96,7 @@ arrow function 相当于call back, 它会在每次setState执行完毕之后，�
  
  Step 2: add file in index.js or App.jsx ==> `import { BrowserRouter, Route, Switch } from 'react-router-dom';`
  
- Step 3: <BrowserRouter> ... </BrowserRouter>
+ Step 3: `<BrowserRouter> ... </BrowserRouter>`
 
 # React-Bootstrap Modals Install Step
   Step 1: install bootstrap package: 在my-app里面 ==》 npm install react-bootstrap bootstrap
