@@ -1,3 +1,46 @@
+# React.memo() AND useMemo() in JavaScript
+==> 这两个选项都允许您通过记忆功能组件的输出来优化功能组件的性能。
+
+1. React.memo():
+
+使用 React.memo()包装componment，React将记住componment的结果，并且只有在 props 发生变化时才重新渲染它。
+
+```JavaScript
+import React from 'react';
+
+const MyComponent = React.memo((props) => {
+  // Component logic here
+});
+
+export default MyComponent;
+```
+
+2. useMemo():
+在这种方法中，您可以使用useMemo() hook 来记住值或计算的结果。dependencies 数组 `[dependency1, dependency2]` 是指定哪些值应该触发重新计算记忆值。
+
+==》通过记忆组件或特定值的输出，您可以防止不必要的重新渲染并提高 React 应用程序的性能。
+
+
+```JavaScript
+import React, { useMemo } from 'react';
+
+const MyComponent = (props) => {
+  // Component logic here
+
+  const memoizedValue = useMemo(() => {
+    // Memoized value calculation
+    return someValue;
+  }, [dependency1, dependency2]);
+
+  return (
+    // JSX rendering using memoizedValue
+  );
+};
+
+export default MyComponent;
+```
+
+
 # React Rounter in React.js
 ==> Beacuse Create React App doesn't include page routing. so the React Router is the most popular solution.
 
