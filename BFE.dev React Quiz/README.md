@@ -34,6 +34,14 @@ React.memo()是 higher-order component（HOC) 高阶组件, 可用于根据其 p
 
 它对之前和当前的 props 进行浅比较，以确定组件是否应该重新渲染。如果顶层的道具没有改变，组件就不会重新渲染。
 
+# memo() in React.js
+memo允许您在 props 不变时跳过重新渲染组件。
+
+包装一个组件memo以获得该组件的 memoized version 记忆版本。只要组件的 props 没有改变，当它的父组件被重新渲染时，你的组件的这个记忆版本通常不会被重新渲染。
+
+但 React 可能仍会重新渲染它：记忆化是一种性能优化，而不是保证。
+
+
 ```JavaScript
 import React from 'react';
 
@@ -42,4 +50,8 @@ const MyComponent = React.memo((props) => {
 });
 
 export default MyComponent;
+```
+
+```JavaScript
+const MemoizedComponent = memo(SomeComponent, arePropsEqual?)
 ```
