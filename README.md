@@ -148,6 +148,8 @@ arrow function 相当于call back, 它会在每次setState执行完毕之后，�
   
   Step 3: 在对应的JSX file中，都要 ==》 import Modal componment and use it 
   
+  ==> import { Modal } from 'react-bootstrap';
+  
  使用模板： 
  ```JSX
  <Modal show = {一个boolean变量控制是否打开} onHide = {一个控制关闭的function}>
