@@ -29,8 +29,8 @@ export function useIsFirstRender(): boolean {
   return false;
 }
 
-if you want to try your code on the right panel
-remember to export App() component like below
+// if you want to try your code on the right panel
+// remember to export App() component like below
 
 export function App() {
   return <div>your app</div>
