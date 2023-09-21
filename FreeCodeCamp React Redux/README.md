@@ -22,9 +22,15 @@ React Redux 是一个用于管理 React state 的 libary。==> redux就是一个
 ==> 描述了要执行的操作类型。根据type属性，Redux store  会调用相应的 `reducer()` 来 **改变 state** (reducer 确定state发生了如何变化的地方)
 
 #  Reducer(): state 进行改变的地方
-1. `Reducer` 是一个纯函数，参数：state 和一个 action，然后返回 新的 state。
+1. `Reducer()` 是一个纯函数，
 
-2. `Reducer` 根据 action 的类型来决定 **如何改变state**。每个 `reducer()` 只负责处理一个特定部分的状态。
+2. `Reducer()`接受两个参数，完成改变后，最后输出返回 新的 state。
+   
+   ==> state: 应用当前的state
+
+   ==> action： 包含一个 type 属性，指示要执行的操作类型，以及其他一些数据，用于修改状态。
+
+3. `Reducer` 根据 action 的类型来决定 **如何改变state**。每个 `reducer()` 只负责处理一个特定部分的状态。
 
 # store.subscribe(): 监听器，在state改变结束之后，更新界面
 `store.subscribe()` 是一个函数，用于向 Redux store 添加一个 listener监听器，以便在 state（也就是store中的数据）发生变化时执行特定的 callback回调函数。
