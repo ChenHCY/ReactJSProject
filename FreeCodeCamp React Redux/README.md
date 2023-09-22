@@ -9,6 +9,14 @@ React Redux 是一个用于管理 React state 的 libary。==> redux就是一个
 
 ==> 通常与 React 结合使用，以便更容易地管理和共享应用程序的状态。
 
+# React Redux 申明
+```JavaScript
+import { createStore } from 'redux' // 引入一个第三方的方法
+const store = createStore() // 创建数据的公共存储区域（管理员）
+```
+
+如何更改store里面数据 ==> 通过 dispatch 来派发 action，通常 action 中都会有 type属性，也可以携带其他的数据
+
 # Action(): 一个用来描述发生了什么事情object
 1. `Action` 是一个普通的 JavaScript 对象，它描述了一个事件或动作，用于**触发 state 变化**。
 
@@ -30,7 +38,12 @@ React Redux 是一个用于管理 React state 的 libary。==> redux就是一个
 
    ==> action： 包含一个 type 属性，指示要执行的操作类型，以及其他一些数据，用于修改状态。
 
-3. `Reducer` 根据 action 的类型来决定 **如何改变state**。每个 `reducer()` 只负责处理一个特定部分的状态。
+```JavaScript
+const reducer = (state = initialState, action) => {
+}
+```
+
+4. `Reducer` 根据 action 的类型来决定 **如何改变state**。每个 `reducer()` 只负责处理一个特定部分的状态。
 
 # store.subscribe(): 监听器，在state改变结束之后，更新界面
 `store.subscribe()` 是一个函数，用于向 Redux store 添加一个 listener监听器，以便在 state（也就是store中的数据）发生变化时执行特定的 callback回调函数。
