@@ -12,7 +12,11 @@ React Redux 是一个用于管理 React state 的 libary。==> redux就是一个
 # React Redux 申明
 ```JavaScript
 import { createStore } from 'redux' // 引入一个第三方的方法
-const store = createStore() // 创建数据的公共存储区域（管理员）
+const store =  createStore() // 创建数据的公共存储区域（管理员）
+
+or
+
+const store = Redux.createStore() // 引入, 创建数据的公共存储区域（管理员）
 ```
 
 如何更改store里面数据 ==> 通过 dispatch 来派发 action，通常 action 中都会有 type属性，也可以携带其他的数据
