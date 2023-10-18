@@ -196,6 +196,7 @@ class Search extends React.Component{
                     onChange={this.inputEnter}
                     placeholder='Plese Enter the User name: '/>
 
+                    {/* Input 输入 autocomplete 自动补全  */}
                     <div className='dropDown'>
                         {data.filter(item => {
                             const searchItem = inputValue && inputValue.toLocaleLowerCase();
@@ -208,6 +209,8 @@ class Search extends React.Component{
                             </div>
                         ))}
                     </div>
+                     {/* Input 输入 autocomplete 自动补全  */}
+                    
                 </div>
 
                 <div style={{marginTop: "10px"}}>
