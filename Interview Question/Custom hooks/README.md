@@ -1,3 +1,38 @@
+# Custom hooks 自定义hook
+主要是提供了一种可重复的、简化的方式来处理 React 应用程序中的特定需求
+
+一种提取可以反复使用的功能的方法。
+
+==》当想避免重复或不想在多个 React 项目中从头开始构建一项相同功能时，==> 可以编写自定义挂钩
+
+```JavaScript
+import { useState } from "react";
+
+const useCounter = (num) => {
+    // useState的申明都是[]
+    const [count, setCount] = new useState(0);
+
+    // 添加值
+    const increment = () => {
+        setCount(count => count + num);
+    }
+
+    // 减少值
+    const decrement = () => {
+        setCount(count => count - num);
+    }
+
+    //把设定的 state值，和function ==》 返回输出
+    return{
+        count,
+        increment,
+        decrement,
+    }
+}
+
+export default useCounter;
+```
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
