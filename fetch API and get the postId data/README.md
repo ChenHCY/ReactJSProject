@@ -4,6 +4,43 @@
 
 然后可以根据用户输入的ID, 展示这个postID的所有评论内容
 
+```JavaScript
+// Button function: 拿到数据
+const searchUserIdPost = () => {
+  fetch(`https://jsonplaceholder.typicode.com/comments?postId=${inputId}`)
+    .then((response) => {
+        if(!response.ok){
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    }).then((data) => {
+        setUserObj(data);            
+    }).catch((error) => {
+        console.error('Error fetching data:', error);        
+    })
+}
+
+//根据search bar输入的postID, 渲染对应的内容
+return(
+  <div className="App">
+      <input type="text" style={{margin: "10px"}} value={inputId} onChange={handleInput}/>
+      <button onClick={ searchUserIdPost }>Search</button>
+
+      {/*如果没找到对应date, 输出报错信息 */}
+          <div style={{marginLeft: "35vw", "textAlign": "left"}}>
+              <ul>
+                { userObj ? ( userObj.map((item) => <li key = {item.id}>
+                    Post Id: {item.postId} <br/>
+                    ID: {item.id} <br/>
+                    name: {item.name} <br/>
+                    email: {item.email} <br/>
+               </li>)) : "Can not find this User ID"
+            }</ul>
+        </div>
+    </div>
+);
+```
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
