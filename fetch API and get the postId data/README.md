@@ -1,3 +1,9 @@
+# 介绍：
+
+使用 fetch(https://jsonplaceholder.typicode.com/comments) 拿到API里面用户的评论
+
+然后可以根据用户输入的ID, 展示这个postID的所有评论内容
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
