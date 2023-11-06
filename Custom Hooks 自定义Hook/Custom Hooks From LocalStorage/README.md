@@ -1,3 +1,14 @@
+# 自定义 Hook 
+
+自定义一个hook, 从search bar输入string, 根据这个输入 从LocalStorage设定name
+
+==> 然后有一个清除数据的button
+
+使用了一个受控的输入框来输入名称，然后在"Set Name"按钮的点击事件处理函数中使用 setName 方法来将输入的名称保存到本地存储
+
+并清空输入框的值。"Clear Name" 按钮仍然使用 clearName 方法来清除本地存储中的数据。
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
