@@ -12,10 +12,11 @@ function App() {
       setLoading(true); //进入Loading状态
 
       //开始async任务，提取data
-      const response = await axios.get('https://jsonplaceholder.typicode.com/todos/1');
+      const response = await axios.get('https://jsonplaceholder.typicode.com/todos/2');
       
       //把提取的数据储存进data[]
       setData(response.data);
+      console.log(response.data);
       setError(null); //没有错误
     } catch (error){ //报错误
       setData(null); 
@@ -33,16 +34,25 @@ function App() {
 
   return (
     <div className="App">
-      <button  style={{margin: "10px"}} onClick={hanleAsync} >
-        {loading ? 'Loading...' : 'Click me'}
-      </button>
-
-      <button  style={{margin: "10px"}} onClick={hanleRenew}>Renew Data</button>
-
+      <div>
+        <button  style={{margin: "10px"}} onClick={hanleAsync} >
+          {loading ? 'Loading...' : 'Click me'}
+        </button>
+        <button  style={{margin: "10px"}} onClick={hanleRenew}>Renew Data</button>
+      </div>
 
       <div>
         {/*首先判断是否异步任务成功, 然后渲染数据*/}
-        {data && <div>Data: {JSON.stringify(data)}</div>}
+        <div style={{marginLeft: "35vw", "textAlign": "left"}}>
+              <ul>
+                { data ? (<li>
+                    User Id: {data.userId} <br/>
+                    ID: {data.id} <br/>
+                    title: {data.title} <br/>
+               </li>) : "Can not find this User ID"
+            }</ul>
+        </div>
+
         {/*检查error报错*/}
         {error && <div>Error: {error}</div>}
       </div>
