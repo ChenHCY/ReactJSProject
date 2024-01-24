@@ -12,7 +12,8 @@ function App() {
   //使用useEffect来监控isActive是否正在进行
   useEffect(() => {
     let interval;
-    //计时器正在进行
+      
+    //如果从useRedcuer的接口得到的isActive变为true, 则计时器开始运行，传输对应的dispath给useReducer去改变变量seconds
     if(state.isActive){
       interval = setInterval(() => {
         dispatch({type: 'START'});
@@ -27,9 +28,9 @@ function App() {
     };
   }, [state.isActive]);
 
-  //开始秒表计时的按钮
+  //开始计时器开始改变的时候，需要对于变量isActive进行改变 ==> 传输对应的dispath 给useReducer()进行改变
   const handleToggle = () => {
-    dispatch({type: 'STOP'});
+    dispatch({type: 'TOGGLE'});
   }
 
   //重置秒表的按钮
