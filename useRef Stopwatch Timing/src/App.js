@@ -10,14 +10,9 @@ function App() {
   const [isActive, setIsActive] = useState(false); 
 
   useEffect (() => {
-    // 直接在UI中使用 secondaryRef.current 可能会导致问题
-    // 所以需要一个function 来改变 secondaryRef.current 
-    const tick = () => {
-      setSeconds((seconds) => seconds + 1);
-    };
-
     if(isActive){
-      intervalRef.current = setInterval(tick, 1000);
+      intervalRef.current = setInterval(() => 
+        setSeconds(seconds => seconds + 1), 1000);
     } else{
       clearInterval(intervalRef.current);
     }
