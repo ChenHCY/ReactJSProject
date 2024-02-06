@@ -1,0 +1,14 @@
+.App {
+  display: flex;
+  display: block;
+  text-align: center;
+  justify-content: center;
+  height: 100vh; /* Optional: Adjust the height based on your requirements */
+}
+
+.App table{
+  display: flex;
+  display: inline-block;
+  text-align: center;
+  justify-content: center;
+}
