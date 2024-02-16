@@ -1,132 +1,127 @@
-import {useState, useEffect} from "react"
-import React from 'react'
-import List from "./List"
+import React from "react";
+import List from './List'
+import { useState } from "react";
 
-// The function Component
-const ToDoList2 = (props) => {
-  const [inputValue, setInputValue] = useState("");
-  const [list, setList] = useState([]);
-  const [important, setImportant] = useState('');
-  const [pageIndex, setPageIndex] = useState(1);
-  const [showItemStart, setShowItemStart] = useState(0);
-  const [showItemEnd, setShowItemEnd] = useState(5);
+const ToDoList = () => {
+    const [inputEvent, setInputEvent] = useState('');
+    const [list, setList] = useState([]);
+    const [important, setImportant] = useState(false);
+    const [pageIndex, setPageIndex] = useState(1);
+    const [startItem, setStartItem] = useState(0);
+    const [endItem, setEndItem] = useState(5);
 
-  //Input bar function: enter the string input value 
-  const inputEnter = (e) => {
-    setInputValue(e.target.value);
-  }
-
-  //used to set this thing is important
-  const radioImportant = (e) => {
-    setImportant(e.target.value);
-  }
-
-   //add the inputValue into total list area
-  const handleAdd = () => {
-    const newList = [
-      ...list,
-      {
-        text: inputValue,
-        isDone: false,
-        isEditing: false,
-        isImportant: important,
-        editValue: "",
-        "key-data": inputValue + Math.random()
-      }
-    ]
-
-    //if finished the input, clear the input text and important radio button
-    //also can use for refused to add empty inputValue
-    if(inputValue){
-      setList(newList);
-      setInputValue("");
-      setImportant('');
+    // 输入的字符串作为item
+    const handleEnter = (e) => {
+        setInputEvent(e.target.value);
     }
-  }
 
-  //clear all the list as empty, and all feature
-  const hanleClear = () =>{
-    setList([]);
-    setInputValue("");
-    setImportant('');
-    setPageIndex(1);
-    setShowItemStart(0);
-    setShowItemEnd(0);
-  }
+    //把输入的事件加入到list
+    const handleAdd = () => {
+        const newList = [
+            ...list,
+            {
+               text: inputEvent,
+               isDone: false,
+               isEditing: false,
+               isImportant: important,
+               editValue: '',
+               "key-data": inputEvent + Math.random()
+            }
+        ];
 
-   //remove feature and eidt item feature
-  const handler = (handlerKey, e) => {
-    const newList = [...list];//首先创建一个new list 然后保留原list所以number
-    const item = newList.find((item) => item["key-data"] === e.target.getAttribute("key-data"));
-    switch(handlerKey){
-      case "markedFinished":
-        item.isDone = !item.isDone;
-        break;
-      case "editClick":
-        item.isEditing = !item.isEditing;
-        break;
-      case "editChange":
-        item.editValue = e.target.value;
-        break;
-      case "editConfirm":
-        item.text = item.editValue;
-        item.isEditing = !item.isEditing;
-        break;
-      case "removeItem":
-        newList.splice(newList.indexOf(item), 1);
-        break;
-      default:
-        break;
+        //if finished the input, clear the input text and important radio button
+        //also can use for refused to add empty inputValue
+        if(inputEvent){
+            setList(newList); //把new list赋值给旧的list
+            setInputEvent('');
+            setImportant(false);
+        }
     }
-    setList(newList);
-  }
 
-  const previous = () => {
-    setShowItemStart(Math.max(showItemStart - 5, 0));
-    setShowItemEnd(Math.max(showItemEnd - 5, 5));
-    setPageIndex(Math.max(pageIndex - 1, 0));
-  }
-
-  const nextPage = () => {
-    if(list.length <= 5){
-      setShowItemStart(0);
-      setShowItemEnd(5);
-      setPageIndex(1);
-    } else{
-      setShowItemStart(showItemStart + 5);
-      setShowItemEnd(showItemEnd + 5);
-      setPageIndex(pageIndex + 1);
+    //选择是否是important
+    const radioInput = () => {
+        setImportant(!important);
     }
-  }
 
+    const handleClear = () => {
+        setInputEvent("");
+        setList([]);
+        setImportant(false);
+        setPageIndex(1);
+        setStartItem(0);
+        setEndItem(5);
+    }
 
-  return <div>
-    <h2 style={{margin: "10px"}}> ToDo List Project </h2>
-    <input style = {{margin: "10px", width: "15rem"}} value = {inputValue} onChange={inputEnter} placeholder='Plesae Enter the thing need to do: '/>
-    <button onClick={handleAdd} style={{margin: "10px"}}> Add </button>
-    <label>
-      <input type='radio' value="important" checked={important === 'important'} onChange={radioImportant} />
-        Important Item
-    </label>
+    //function: finished, edit, removed
+    const handle = (handleKey, e) => {
+        const newList = [...list];
+        const currItem = newList.find((item) => item["key-data"] === e.target.getAttribute("key-data"));
+        switch(handleKey){
+            case "markFinished":
+                currItem.isDone = !currItem.isDone;
+                break;
+            case "removedItem":
+                newList.splice(newList.indexOf(currItem), 1); //在需要删除的item的index位置，删除一个元素
+                break;
+            case "editItem":
+                currItem.isEditing = !currItem.isEditing;
+                break;
+            case "editChange":
+                currItem.editValue = e.target.value;
+                break;
+            case "editConfirm":
+                currItem.text = currItem.editValue;
+                currItem.isEditing = !currItem.isEditing;
+                break;
+            default:
+                break;
+        }
+        setList(newList);
+    }
 
-    <List
-        list = {list} //sent the props list to list.jsx
-        showItemStart = {showItemStart} //send the showItemStart 的访问资格到list.jsx
-        showItemEnd = {showItemEnd} //send the showItemEnd 的访问资格到list.jsx
-        pageIndex = {pageIndex} //send the pageIndex 的访问资格到list.jsx
-        handler = {handler}  //传送hanler function的访问资格到list.jsx
-    />
+    const previousPage = () =>{
+        setStartItem(Math.max(0, startItem - 5));
+        setEndItem(Math.max(5, endItem - 5));
+        setPageIndex(Math.max(1, pageIndex - 1));
+    }
 
-    <p>
-    <button style = {{margin: "10px"}} onClick={previous}>Pervious Page </button>
-    Page Index: {pageIndex} 
-    <button style = {{margin: "10px"}} onClick={nextPage}>Next Page</button>
-    </p>
-    <button style = {{margin: "10px"}}  onClick={hanleClear}>Clear</button>
+    const nextPage = () => {
+        if(list.length < 5){
+            setStartItem(0);
+            setEndItem(5);
+            setPageIndex(1);
+        } else if(startItem < list.length && endItem < list.length){
+            setStartItem(startItem + 5);
+            setEndItem(endItem + 5);
+            setPageIndex(pageIndex + 1);
+        } else{
+            setStartItem(startItem);
+            setEndItem(endItem);
+            setPageIndex(pageIndex);
+        }
+    }
 
-  </div>
-
+    return <div>
+        <h2> To Do List Project </h2>
+        <input style = {{margin: "10px", width: "20rem", fontSize: "20px"}} type="text" value={inputEvent} onChange={handleEnter} placeholder='Plesae Enter the thing need to do: '></input>
+        <button onClick={handleAdd} style={{margin: "10px"}}> Add </button>
+        <button onClick={handleClear} style={{margin: "10px"}}> Clear </button>
+        <label>
+            <input type='checkbox' checked={important} onChange={radioInput} /> 
+            Important Item
+        </label>
+        
+        <List
+            list = {list}
+            startItem = {startItem}
+            endItem = {endItem}
+            handle = {handle}
+            nextPage = {nextPage}
+            pageIndex = {pageIndex}
+            previousPage = {previousPage}
+        />
+        
+    </div>
 }
 
-
-export default ToDoList2;
+export default ToDoList
